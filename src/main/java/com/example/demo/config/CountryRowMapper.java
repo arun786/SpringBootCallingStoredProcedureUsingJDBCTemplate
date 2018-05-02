@@ -3,12 +3,11 @@
  */
 package com.example.demo.config;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import com.example.demo.model.Country;
 import org.springframework.jdbc.core.RowMapper;
 
-import com.example.demo.country.Country;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * @author Adwiti
@@ -25,5 +24,4 @@ public class CountryRowMapper implements RowMapper<Country> {
 		country.setCurrency(rs.getString(4));
 		return country;
 	}
-
 }

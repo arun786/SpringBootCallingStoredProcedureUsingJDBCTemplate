@@ -1,20 +1,19 @@
 /**
  * 
  */
-package com.example.demo.config;
+package com.example.demo.storedprocedure;
 
-import java.sql.Types;
-import java.util.HashMap;
-import java.util.Map;
-
+import com.example.demo.config.CountryRowMapper;
+import com.example.demo.model.Country;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.jdbc.object.StoredProcedure;
 
-import com.example.demo.country.Country;
+import java.sql.Types;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Adwiti
@@ -23,15 +22,13 @@ import com.example.demo.country.Country;
 public class CountryStoredProcedure extends StoredProcedure {
 
 	public CountryStoredProcedure(JdbcTemplate jdbcTemplate) {
+		/**
+		 * This will be the name of the stored procedure, getCountry
+		 */
 		super(jdbcTemplate, "getCountry");
-
 		RowMapper<Country> rowMapper = new CountryRowMapper();
 		declareParameter(new SqlReturnResultSet("country", rowMapper));
 		declareParameter(new SqlParameter("id", Types.VARCHAR));
-		declareParameter(new SqlOutParameter("id", Types.VARCHAR));
-		declareParameter(new SqlOutParameter("name", Types.VARCHAR));
-		declareParameter(new SqlOutParameter("capital", Types.VARCHAR));
-		declareParameter(new SqlOutParameter("currency", Types.VARCHAR));
 		compile();
 	}
 

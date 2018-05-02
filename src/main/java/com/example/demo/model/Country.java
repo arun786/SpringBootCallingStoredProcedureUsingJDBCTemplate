@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.demo.country;
+package com.example.demo.model;
 
 /**
  * @author Adwiti
