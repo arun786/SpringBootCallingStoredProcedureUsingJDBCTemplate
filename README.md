@@ -1,15 +1,15 @@
 # Spring Boot With Stored Procedure with JDBCTemplate
 
-# Call a Stored Procedure when out parameter is a Result set.
+## Call a Stored Procedure when out parameter is a Result set.
 
-## 1 Create a Stored Procedure as below
+### 1 Create a Stored Procedure as below
  
- CREATE DEFINER=`root`@`localhost` PROCEDURE `getCountry`(in `country_id` varchar(10))
- BEGIN
- select id, name, capital, currency from country where `id` = country_id;
- END
+     CREATE DEFINER=`root`@`localhost` PROCEDURE `getCountry`(in `country_id` varchar(10))
+     BEGIN
+     select id, name, capital, currency from country where `id` = country_id;
+     END
  
-## 2 Create a Rowmapper
+### 2 Create a Rowmapper
 
     /**
      * 
@@ -39,7 +39,7 @@
     	}
     }
 
-## 3 Create a Stored Procedure 
+### 3 Create a Stored Procedure 
 
     /**
      * 
@@ -84,7 +84,7 @@
     	}
     }
     
-## 4 call the stored procedure from DAO layer
+### 4 call the stored procedure from DAO layer
 
     /**
      *
