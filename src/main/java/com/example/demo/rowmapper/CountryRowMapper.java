@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.demo.config;
+package com.example.demo.rowmapper;
 
 import com.example.demo.model.Country;
 import org.springframework.jdbc.core.RowMapper;

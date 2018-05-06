@@ -3,7 +3,7 @@
  */
 package com.example.demo.storedprocedure;
 
-import com.example.demo.config.CountryRowMapper;
+import com.example.demo.rowmapper.CountryRowMapper;
 import com.example.demo.model.Country;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

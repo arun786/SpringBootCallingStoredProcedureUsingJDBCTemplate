@@ -3,12 +3,11 @@
  */
 package com.example.demo.service;
 
-import com.example.demo.model.Country;
 import com.example.demo.dao.CountryDAO;
+import com.example.demo.model.Country;
+import com.example.demo.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author Adwiti
@@ -21,8 +20,8 @@ public class CountryServiceImpl implements CountryService {
 	private CountryDAO countryDAO;
 
 	@Override
-	public List<Country> getAllCountry(String id) {
-		return countryDAO.getAllCountry(id);
+	public Customer getACustomer(String id) {
+		return countryDAO.getACustomer(id);
 	}
 
 	@Override

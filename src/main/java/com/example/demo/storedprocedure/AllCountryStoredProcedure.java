@@ -1,6 +1,6 @@
 package com.example.demo.storedprocedure;
 
-import com.example.demo.config.CountryRowMapper;
+import com.example.demo.rowmapper.CountryRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.jdbc.object.StoredProcedure;

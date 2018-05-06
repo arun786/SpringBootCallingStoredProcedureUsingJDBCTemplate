@@ -4,8 +4,7 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Country;
-
-import java.util.List;
+import com.example.demo.model.Customer;
 
 /**
  * @author Adwiti
@@ -13,7 +12,7 @@ import java.util.List;
  */
 public interface CountryService {
 
-	public List<Country> getAllCountry(String id);
+	public Customer getACustomer(String id);
 	
 	public Country getACountry(String id);
 
