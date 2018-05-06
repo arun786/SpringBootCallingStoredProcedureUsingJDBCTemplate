@@ -64,6 +64,68 @@
         }
     }
 
+## Stored Procedure 
+
+    package com.example.demo.storedprocedure;
+    
+    import com.example.demo.rowmapper.CustomerRowMapper;
+    import org.springframework.jdbc.core.JdbcTemplate;
+    import org.springframework.jdbc.core.SqlParameter;
+    import org.springframework.jdbc.core.SqlReturnResultSet;
+    import org.springframework.jdbc.object.StoredProcedure;
+    
+    import java.sql.Types;
+    import java.util.HashMap;
+    import java.util.Map;
+    
+    /**
+     * Created by Adwiti on 5/5/2018.
+     */
+    public class CustomerStoredProcedure extends StoredProcedure {
+        public CustomerStoredProcedure(JdbcTemplate jdbcTemplate){
+            super(jdbcTemplate, "getCustomer");
+            CustomerRowMapper customerRowMapper = new CustomerRowMapper();
+            declareParameter(new SqlReturnResultSet("customer", customerRowMapper));
+            declareParameter(new SqlParameter("id", Types.VARCHAR));
+        }
+    
+        public Map<String,Object> getCustomer(String id){
+            Map<String,Object> in = new HashMap<>();
+            in.put("id",id);
+            Map<String,Object> out = execute(in);
+            return out;
+        }
+    }
+
+    /**
+     * 
+     */
+    package com.example.demo.rowmapper;
+    
+    import com.example.demo.model.Country;
+    import org.springframework.jdbc.core.RowMapper;
+    
+    import java.sql.ResultSet;
+    import java.sql.SQLException;
+    
+    /**
+     * @author Adwiti
+     *
+     */
+    public class CountryRowMapper implements RowMapper<Country> {
+    
+    	@Override
+    	public Country mapRow(ResultSet rs, int rowNum) throws SQLException {
+    		Country country = new Country();
+    		country.setId(rs.getString(1));
+    		country.setName(rs.getString(2));
+    		country.setCapital(rs.getString(3));
+    		country.setCurrency(rs.getString(4));
+    		return country;
+    	}
+    }
+
+
 ## DAO layer
 
     /**
